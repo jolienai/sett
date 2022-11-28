@@ -4,9 +4,10 @@ import (
 	"bytes"
 	"encoding/gob"
 	"errors"
-	badger "github.com/dgraph-io/badger/v2"
 	"log"
 	"time"
+
+	badger "github.com/dgraph-io/badger/v2"
 )
 
 var (
@@ -28,7 +29,7 @@ func Open(opts badger.Options) *Sett {
 
 	db, err := badger.Open(opts)
 	if err != nil {
-		log.Fatal("Open: create or open failed")
+		log.Fatal(err)
 	}
 	s.db = db
 	return &s
